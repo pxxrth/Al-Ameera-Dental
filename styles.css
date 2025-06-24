@@ -30,6 +30,18 @@
   --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/*=============== ANIMATIONS ===============*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Base Styles */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -123,22 +135,39 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 
 /*=============== HERO ===============*/
 .hero {
+    position: relative; /* Needed for z-index context */
     padding-top: calc(var(--header-height) + 2rem);
     padding-bottom: 4rem;
     background: linear-gradient(135deg, var(--secondary-color) 0%, #ffffff 100%);
+    color: #fff; /* Set text color to white for better contrast */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Semi-transparent overlay */
+    z-index: 1;
 }
 
 .hero__container {
+    position: relative; /* Ensure content is above the overlay */
+    z-index: 2;
     display: grid;
     gap: 3rem;
-    align-items: stretch;
+    align-items: center; /* Vertically center content */
+    min-height: calc(100vh - var(--header-height)); /* Ensure it takes up viewport height */
 }
 
 .hero__content-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1.5rem; /* Adjusted gap */
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .hero__card {
@@ -148,10 +177,20 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
     border: 1px solid var(--border-color);
 }
 .hero__intro-text {
-    padding: 1rem 0;
+    padding: 2rem 0; /* Increased padding */
 }
-.hero__title { font-size: 2.75rem; line-height: 1.2; margin-bottom: 1rem; }
-.hero__subtitle { font-size: 1.1rem; color: var(--text-color-light); margin-bottom: 2rem; }
+.hero__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
+    font-weight: 700; /* Bolder text */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.hero__subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Responsive font size */
+    color: #f0f0f0;
+    margin-bottom: 2rem;
+}
 
 .hero__cta-button {
     padding: 1rem 2.5rem;
@@ -245,10 +284,10 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 
 /*=============== SERVICES ===============*/
 .services {
-    background-color: var(--secondary-color);
+    background-color: #f9f9f9;
 }
 .services__container {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     justify-content: center;
 }
@@ -296,11 +335,36 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
     margin-bottom: 0.5rem;
 }
 .service__benefits i {
-    color: var(--accent-color);
+    color: var(--primary-color);
+    margin-right: 0.75rem;
 }
 
 /*=============== DOCTORS ===============*/
-.doctors__container { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+.doctors {
+    background-color: #f0f8ff; /* Light blue background */
+    position: relative;
+    overflow: hidden;
+}
+
+.doctors::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="%23d6eaff" d="M48.5,-59.5C61.4,-52.4,70.1,-37,74.7,-21.1C79.3,-5.2,80,11.3,73,23.5C66,35.7,51.2,43.6,37.3,51.4C23.3,59.2,10.2,66.9,-3.9,69.5C-18,72.1,-33.2,69.5,-45.5,61.1C-57.8,52.7,-67.2,38.5,-71.4,23.3C-75.6,8.1,-74.6,-8,-68.8,-22.4C-63,-36.8,-52.4,-49.5,-39.8,-57.4C-27.2,-65.3,-13.6,-68.4,1.2,-70C16,-71.5,31.9,-71.1,48.5,-59.5Z" transform="translate(100 100)" /></svg>');
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.doctors__container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
 .doctor__card {
     text-align: center;
     border-radius: var(--border-radius);
@@ -333,7 +397,9 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 .doctor__specialty { color: var(--text-color-light); }
 
 /*=============== ROADMAP ===============*/
-.roadmap { background-color: var(--secondary-color); }
+.roadmap {
+    background-color: #ffffff;
+}
 .roadmap__container {
     display: flex;
     align-items: flex-start;
@@ -450,6 +516,9 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 }
 
 /*=============== FAQ ===============*/
+.faq {
+    background: linear-gradient(180deg, #f9f9f9 0%, #f0f8ff 100%);
+}
 .faq__container-grid { display: grid; gap: 4rem; align-items: center; }
 .faq__content-left .section__title { text-align: left; }
 .faq__image { border-radius: var(--border-radius); margin-top: 2rem; }
@@ -619,6 +688,10 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
     
     .hero__form-container {
         padding: 2rem 1.5rem;
+    }
+
+    .section {
+        padding: 3rem 0;
     }
 }
 

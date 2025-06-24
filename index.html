@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Ameera Dental Clinic</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Flatpickr (for Date Picker) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========================
+         HEADER
+    ========================= -->
+    <header class="header">
+        <!-- Main Header -->
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav__logo">Al Ameera Dental</a>
+                
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                        <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                        <li class="nav__item"><a href="#doctors" class="nav__link">Our Doctors</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About Us</a></li>
+                        <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__actions">
+                    <a href="#appointment-form" class="btn btn--primary nav__btn">Book Appointment</a>
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========================
+             HERO SECTION
+        ========================= -->
+        <section class="hero" id="home">
+            <div class="container hero__container grid">
+                <!-- Hero Content -->
+                <div class="hero__content-left">
+                    <div class="hero__intro-text">
+                        <h1 class="hero__title">Your Smile, Our Passion.</h1>
+                        <p class="hero__subtitle">Exceptional dental care in the heart of Abu Dhabi. Let us help you achieve the perfect smile.</p>
+                        <a href="#appointment-form" class="btn btn--primary hero__cta-button">Book a Free Consultation</a>
+                    </div>
+                    
+                    <div class="hero__social-proof">
+                        <div class="hero__patient-feature">
+                            <div class="patient-avatars">
+                                <img src="..\Images\patients1.png" alt="Patient">
+                                <img src="..\Images\patients2.png" alt="Patient">
+                                <img src="..\Images\patients3.png" alt="Patient">
+                            </div>
+                            <p><strong>16K+</strong> Satisfied Patients</p>
+                        </div>
+                        <div class="hero__stats">
+                            <div class="stat">
+                                <p class="stat__number">10+</p>
+                                <p class="stat__text">Years Experience</p>
+                            </div>
+                            <div class="stat">
+                                <p class="stat__number">5/5</p>
+                                <p class="stat__text">Average Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Appointment Form -->
+                <div class="hero__form-container" id="appointment-form">
+                    <form action="#" class="appointment-form">
+                        <h3 class="form__title">Book an Appointment</h3>
+                        <div class="form__group">
+                            <input type="text" id="name" name="name" class="form__input" placeholder=" " required>
+                            <label for="name" class="form__label">Your Name</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="tel" id="phone" name="phone" class="form__input" placeholder=" " required>
+                            <label for="phone" class="form__label">Phone Number</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="text" id="date" name="date" class="form__input" placeholder=" " required>
+                            <label for="date" class="form__label">Preferred Date</label>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Request a Callback</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================
+             SERVICES SECTION
+        ========================= -->
+        <section class="services section" id="services">
+            <div class="container">
+                <span class="section__subtitle">Our Services</span>
+                <h2 class="section__title">High-Quality Dental Services</h2>
+                <div class="services__container grid">
+                    <!-- Service Card 1 -->
+                    <div class="service__card">
+                        <img src="../Images/general-dentistry.png" alt="General Dentistry" class="service__img">
+                        <div class="service__content">
+                            <h3 class="service__title">General Dentistry</h3>
+                            <ul class="service__benefits">
+                                <li><i class="fas fa-check"></i> Routine Check-ups & Cleanings</li>
+                                <li><i class="fas fa-check"></i> Fillings and Restorations</li>
+                                <li><i class="fas fa-check"></i> Preventive Care Advice</li>
+                            </ul>
+                            <a href="#" class="btn btn--primary btn--full-width">Explore More</a>
+                        </div>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="service__card">
+                        <img src="../Images/cosmetic-dentistry.png" alt="Cosmetic Dentistry" class="service__img">
+                        <div class="service__content">
+                            <h3 class="service__title">Cosmetic Dentistry</h3>
+                            <ul class="service__benefits">
+                                <li><i class="fas fa-check"></i> Teeth Whitening</li>
+                                <li><i class="fas fa-check"></i> Porcelain Veneers</li>
+                                <li><i class="fas fa-check"></i> Full Smile Makeovers</li>
+                            </ul>
+                            <a href="#" class="btn btn--primary btn--full-width">Explore More</a>
+                        </div>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="service__card">
+                       <img src="../Images/dental-implants.png" alt="Dental Implants" class="service__img">
+                       <div class="service__content">
+                            <h3 class="service__title">Dental Implants</h3>
+                            <ul class="service__benefits">
+                                <li><i class="fas fa-check"></i> Single & Multiple Implants</li>
+                                <li><i class="fas fa-check"></i> All-on-4® Treatment</li>
+                                <li><i class="fas fa-check"></i> Natural Look and Feel</li>
+                            </ul>
+                            <a href="#" class="btn btn--primary btn--full-width">Explore More</a>
+                        </div>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="service__card">
+                        <img src="../Images/orthodontics.png" alt="Orthodontics" class="service__img">
+                        <div class="service__content">
+                            <h3 class="service__title">Orthodontics</h3>
+                            <ul class="service__benefits">
+                                <li><i class="fas fa-check"></i> Invisalign® Clear Aligners</li>
+                                <li><i class="fas fa-check"></i> Traditional & Ceramic Braces</li>
+                                <li><i class="fas fa-check"></i> Retainers & Aftercare</li>
+                            </ul>
+                            <a href="#" class="btn btn--primary btn--full-width">Explore More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================
+             DOCTORS SECTION
+        ========================= -->
+        <section class="doctors section" id="doctors">
+            <div class="container">
+                <span class="section__subtitle">Our Experts</span>
+                <h2 class="section__title">Meet Our Professional Team</h2>
+                <div class="doctors__container grid">
+                    <!-- Doctor 1 -->
+                    <div class="doctor__card">
+                        <div class="doctor__img-container">
+                            <img src="../Images/doctor1.png" alt="Dr. placeholder" class="doctor__img">
+                            <div class="doctor__socials">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                        <div class="doctor__info">
+                            <h3 class="doctor__name">Dr. Aisha Khan</h3>
+                            <p class="doctor__specialty">General & Cosmetic Dentist</p>
+                        </div>
+                    </div>
+                    <!-- Doctor 2 -->
+                    <div class="doctor__card">
+                        <div class="doctor__img-container">
+                            <img src="../Images/doctor2.png" alt="Dr. placeholder" class="doctor__img">
+                            <div class="doctor__socials">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                        <div class="doctor__info">
+                            <h3 class="doctor__name">Dr. Omar Al-Farsi</h3>
+                            <p class="doctor__specialty">Orthodontist</p>
+                        </div>
+                    </div>
+                    <!-- Doctor 3 -->
+                    <div class="doctor__card">
+                        <div class="doctor__img-container">
+                            <img src="../Images/doctor3.png" alt="Dr. placeholder" class="doctor__img">
+                             <div class="doctor__socials">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                         <div class="doctor__info">
+                            <h3 class="doctor__name">Dr. Fatima Ahmed</h3>
+                            <p class="doctor__specialty">Implant Specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================
+             ROADMAP/JOURNEY SECTION
+        ========================= -->
+        <section class="roadmap section" id="about">
+             <div class="container">
+                <span class="section__subtitle">Our Approach</span>
+                <h2 class="section__title">Your Journey to a Perfect Smile</h2>
+                <div class="roadmap__container">
+                    <!-- Step 1 -->
+                    <div class="roadmap__step">
+                        <div class="roadmap__icon-wrapper">
+                           <i class="fas fa-calendar-check"></i>
+                           <span class="roadmap__step-number">1</span>
+                        </div>
+                        <div class="roadmap__content">
+                            <h3 class="roadmap__title">Book Your Appointment</h3>
+                            <p>Schedule your visit with us at your convenience through our easy booking system.</p>
+                        </div>
+                    </div>
+                    <!-- Connector -->
+                    <div class="roadmap__connector"></div>
+                    <!-- Step 2 -->
+                    <div class="roadmap__step">
+                        <div class="roadmap__icon-wrapper">
+                            <i class="fas fa-stethoscope"></i>
+                            <span class="roadmap__step-number">2</span>
+                        </div>
+                        <div class="roadmap__content">
+                            <h3 class="roadmap__title">Consultation</h3>
+                            <p>A detailed consultation with our specialists to discuss your needs and goals.</p>
+                        </div>
+                    </div>
+                    <!-- Connector -->
+                    <div class="roadmap__connector"></div>
+                    <!-- Step 3 -->
+                    <div class="roadmap__step">
+                         <div class="roadmap__icon-wrapper">
+                            <i class="fas fa-hand-holding-medical"></i>
+                            <span class="roadmap__step-number">3</span>
+                        </div>
+                        <div class="roadmap__content">
+                            <h3 class="roadmap__title">Expert Treatment</h3>
+                            <p>Receive top-tier care from our experienced doctors using modern technology.</p>
+                        </div>
+                    </div>
+                    <!-- Connector -->
+                    <div class="roadmap__connector"></div>
+                     <!-- Step 4 -->
+                    <div class="roadmap__step">
+                         <div class="roadmap__icon-wrapper">
+                            <i class="fas fa-smile-beam"></i>
+                            <span class="roadmap__step-number">4</span>
+                        </div>
+                        <div class="roadmap__content">
+                            <h3 class="roadmap__title">Follow-up & Care</h3>
+                            <p>We ensure your smile stays healthy with comprehensive post-treatment advice.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="roadmap__cta">
+                    <a href="#appointment-form">Consult Our Specialists Today <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================
+             REVIEWS SECTION
+        ========================= -->
+        <section class="reviews section">
+            <div class="container">
+                <span class="section__subtitle">Testimonials</span>
+                <h2 class="section__title">What Our Patients Say</h2>
+                <div class="reviews__container grid">
+                    <!-- Review 1 -->
+                    <div class="review__card">
+                        <div class="review__header">
+                             <img src="../Images/patient1.png" alt="Patient photo" class="review__author-img">
+                            <div class="review__author-info">
+                                <h4 class="review__author-name">Ahmed M.</h4>
+                                <div class="review__stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review__text">"The best dental clinic in Abu Dhabi! The staff is incredibly friendly and professional. I felt at ease throughout my entire treatment."</p>
+                    </div>
+                     <!-- Review 2 -->
+                    <div class="review__card">
+                         <div class="review__header">
+                             <img src="../Images/patient2.png" alt="Patient photo" class="review__author-img">
+                            <div class="review__author-info">
+                                <h4 class="review__author-name">Sarah L.</h4>
+                                 <div class="review__stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review__text">"Dr. Aisha is a fantastic dentist. She explained everything clearly and made sure I was comfortable. My new smile is amazing!"</p>
+                    </div>
+                     <!-- Review 3 -->
+                    <div class="review__card">
+                        <div class="review__header">
+                             <img src="../Images/patient3.png" alt="Patient photo" class="review__author-img">
+                            <div class="review__author-info">
+                                <h4 class="review__author-name">Fatima K.</h4>
+                                 <div class="review__stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review__text">"A truly wonderful and pain-free experience. The clinic is modern, clean, and has a very relaxing atmosphere. Highly recommended."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================
+             FAQ SECTION
+        ========================= -->
+        <section class="faq section" id="faq">
+            <div class="container faq__container-grid">
+                <div class="faq__content-left">
+                     <span class="section__subtitle">Have Questions?</span>
+                     <h2 class="section__title" style="text-align: left;">Frequently Asked Questions</h2>
+                     <p>Can't find the answer you're looking for? Please chat to our friendly team.</p>
+                     <img src="https://via.placeholder.com/500x350/F0F5FF/0057FF?text=Clean+and+Modern+Clinic" alt="FAQ illustration" class="faq__image">
+                </div>
+                <div class="faq__content-right">
+                    <div class="faq__item">
+                        <div class="faq__header">
+                            <h3 class="faq__question">What are your opening hours?</h3>
+                            <i class="fas fa-plus faq__icon"></i>
+                        </div>
+                        <div class="faq__content">
+                            <p>We are open from 9 AM to 9 PM, Saturday to Thursday. We are closed on Fridays.</p>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <div class="faq__header">
+                            <h3 class="faq__question">Do you accept insurance?</h3>
+                            <i class="fas fa-plus faq__icon"></i>
+                        </div>
+                        <div class="faq__content">
+                            <p>Yes, we accept a wide range of major insurance providers. Please contact us with your insurance details to confirm coverage.</p>
+                        </div>
+                    </div>
+                     <div class="faq__item">
+                        <div class="faq__header">
+                            <h3 class="faq__question">What should I do in a dental emergency?</h3>
+                             <i class="fas fa-plus faq__icon"></i>
+                        </div>
+                        <div class="faq__content">
+                            <p>For dental emergencies, please call us directly. We offer same-day appointments for urgent cases to provide immediate relief and care.</p>
+                        </div>
+                    </div>
+                     <div class="faq__item">
+                        <div class="faq__header">
+                            <h3 class="faq__question">What payment methods do you accept?</h3>
+                             <i class="fas fa-plus faq__icon"></i>
+                        </div>
+                        <div class="faq__content">
+                            <p>We accept cash, credit/debit cards, and approved insurance plans. We also offer flexible payment plans for certain treatments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- ========================
+         FOOTER
+    ========================= -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <!-- About Section -->
+            <div class="footer__section footer__section--about">
+                <h4 class="footer__logo">Al Ameera Dental</h4>
+                <p>Your destination for world-class dental care in Abu Dhabi. We are committed to creating beautiful, healthy smiles.</p>
+                 <div class="footer__socials">
+                    <a href="#" class="footer__social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer__social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="footer__social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <!-- Links Section -->
+            <div class="footer__section">
+                <h4 class="footer__title">Explore</h4>
+                <ul class="footer__links">
+                    <li><a href="#home" class="footer__link">Home</a></li>
+                    <li><a href="#services" class="footer__link">Services</a></li>
+                    <li><a href="#doctors" class="footer__link">Doctors</a></li>
+                    <li><a href="#about" class="footer__link">About Us</a></li>
+                     <li><a href="#faq" class="footer__link">FAQs</a></li>
+                </ul>
+            </div>
+            <!-- Contact Section -->
+            <div class="footer__section">
+                <h4 class="footer__title">Contact</h4>
+                <ul class="footer__contact">
+                    <li><i class="fas fa-map-marker-alt"></i><span>Abu Dhabi, UAE</span></li>
+                    <li><i class="fas fa-phone"></i><span>+971 58 586 6799</span></li>
+                    <li><i class="fas fa-envelope"></i><span>contact@alameeradental.ae</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2025 Al Ameera Dental Clinic. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================
+         SCRIPTS
+    ========================= -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

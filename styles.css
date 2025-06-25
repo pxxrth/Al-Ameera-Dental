@@ -51,6 +51,7 @@ body {
   background-color: var(--body-bg-color);
   color: var(--text-color);
   line-height: 1.7;
+  background: #f3fdfa;
 }
 ul { list-style: none; }
 a { text-decoration: none; color: var(--primary-color); }
@@ -159,7 +160,7 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
     position: relative; /* Needed for z-index context */
     padding-top: calc(var(--header-height) + 2rem);
     padding-bottom: 4rem;
-    background: linear-gradient(135deg, #fdf7f2 0%, #fefdfc 100%); /* New warm gradient */
+    background: linear-gradient(135deg, #d4fff4 0%, #fefdfc 100%) !important;
     color: var(--text-color); /* Set text color to default dark */
 }
 
@@ -307,7 +308,7 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 
 /*=============== SERVICES ===============*/
 .services {
-    background-color: #f9f9f9;
+    background-color: #fdfdfc !important;
 }
 .services__container {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -364,7 +365,7 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 
 /*=============== DOCTORS ===============*/
 .doctors {
-    background-color: #fdf7f2; /* Soft cream background */
+    background-color: #f3fdfa !important;
     position: relative;
     overflow: hidden;
 }
@@ -421,7 +422,7 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 
 /*=============== ROADMAP ===============*/
 .roadmap {
-    background-color: #ffffff;
+    background-color: #f3fdfa !important;
 }
 .roadmap__container {
     display: flex;
@@ -510,7 +511,7 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 
 /*=============== REVIEWS ===============*/
 .reviews {
-    background-color: #f8f8f8; /* Light background for testimonials */
+    background-color: #fdfdfc !important;
 }
 
 .reviews__container { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
@@ -546,7 +547,7 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 
 /*=============== FAQ ===============*/
 .faq {
-    background: #ffffff;
+    background: #f3fdfa !important;
 }
 .faq__container-grid { display: grid; gap: 4rem; align-items: center; }
 .faq__content-left .section__title { text-align: left; }
@@ -592,7 +593,11 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 }
 
 /*=============== FOOTER ===============*/
-.footer { background-color: var(--text-color); color: hsla(0,0%,100%,.7); padding-top: 4rem; }
+.footer {
+    background-color: #181818 !important;
+    color: #fff !important;
+    padding-top: 4rem;
+}
 .footer__container { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 2rem; padding-bottom: 3rem; }
 .footer__logo { font-size: 1.75rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
 .footer__section p { margin-bottom: 1.5rem; }
@@ -734,18 +739,21 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
     box-sizing: border-box !important;
     overflow: hidden !important;
     background: #fff !important;
-    border-radius: 12px !important;
-    box-shadow: 0 8px 32px rgba(30,42,90,0.10) !important;
-    border: 1px solid #e0e0e0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 32px rgba(30,42,90,0.12) !important;
+    border: 1.5px solid #e0e0e0 !important;
+    margin: 1.2rem 0 !important;
+    font-family: 'Inter', 'Poppins', system-ui, sans-serif !important;
 }
 .flatpickr-months {
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between !important;
-    padding: 0.7rem 1.2rem 0.5rem 1.2rem !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    padding: 1rem 1.5rem 0.7rem 1.5rem !important;
     background: #fff !important;
-    border-radius: 12px 12px 0 0 !important;
-    font-size: 1.1rem !important;
+    border-radius: 14px 14px 0 0 !important;
+    font-size: 1.15rem !important;
     font-weight: 600 !important;
     color: #222 !important;
     border-bottom: 1px solid #f0f0f0 !important;
@@ -753,72 +761,96 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 .flatpickr-month {
     display: flex !important;
     align-items: center !important;
-    gap: 0.5rem !important;
+    gap: 0.7rem !important;
     color: #222 !important;
 }
 .flatpickr-current-month {
     display: flex !important;
     align-items: center !important;
-    gap: 0.5rem !important;
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
-    color: #222 !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    width: 100%;
+    min-width: 0;
 }
 .flatpickr-monthDropdown-months, .flatpickr-current-month input.cur-year {
     font-size: 1.1rem !important;
     font-weight: 500 !important;
-    padding: 0.2rem 0.5rem !important;
-    border-radius: 6px !important;
+    border-radius: 7px !important;
     border: 1px solid #e0e0e0 !important;
     background: #fff !important;
     color: #222 !important;
-    margin-right: 0.5rem !important;
+    min-width: 4.5ch !important;
+    max-width: 7ch !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+.flatpickr-current-month input.cur-year {
+    margin-right: 0 !important;
 }
 .flatpickr-prev-month, .flatpickr-next-month {
     color: #222 !important;
     fill: #222 !important;
-    font-size: 1.2em !important;
+    font-size: 1.3em !important;
     opacity: 1 !important;
+    margin: 0 0.3rem !important;
+    padding: 0.2rem !important;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+.flatpickr-prev-month:hover, .flatpickr-next-month:hover {
+    background: #f0f4fa !important;
 }
 .flatpickr-weekdays {
     display: flex !important;
     justify-content: space-between !important;
-    padding: 0.5rem 1.2rem 0.2rem 1.2rem !important;
+    padding: 0.6rem 1.5rem 0.3rem 1.5rem !important;
     background: #fff !important;
-    font-size: 1rem !important;
+    font-size: 1.02rem !important;
     font-weight: 500 !important;
     color: #888 !important;
     border-bottom: 1px solid #f0f0f0 !important;
+    letter-spacing: 0.02em;
 }
 .flatpickr-weekday {
     flex: 1 1 0;
     text-align: center;
-    padding: 0.2rem 0 !important;
-    font-size: 1rem !important;
+    padding: 0.3rem 0 !important;
+    font-size: 1.02rem !important;
     font-weight: 500 !important;
     color: #888 !important;
+    font-family: 'Inter', 'Poppins', system-ui, sans-serif !important;
 }
 .flatpickr-days {
-    padding: 0.7rem 1.2rem 1rem 1.2rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 0.25rem !important;
+    overflow: hidden !important;
+    padding: 1.1rem 1.5rem 1.2rem 1.5rem !important;
     background: #fff !important;
-    border-radius: 0 0 12px 12px !important;
+    border-radius: 0 0 14px 14px !important;
+    min-width: 0;
+    box-sizing: border-box !important;
 }
 .flatpickr-day {
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-size: 1.05rem !important;
+    width: 14.28% !important;
+    min-width: 2.3em !important;
+    min-height: 2.3em !important;
+    line-height: 2.3em !important;
+    font-family: 'Inter', 'Poppins', system-ui, sans-serif !important;
+    font-size: 1.08rem !important;
     font-weight: 500 !important;
     color: #222 !important;
     background: #fff !important;
     border-radius: 50% !important;
-    padding: 0.5em 0 !important;
-    margin: 0.1em 0 !important;
+    padding: 0.45em 0 !important;
+    margin: 0.12em 0 !important;
     text-align: center !important;
     transition: background 0.2s, color 0.2s, border 0.2s;
     border: 2px solid transparent !important;
-    min-width: 2.2em !important;
-    min-height: 2.2em !important;
-    line-height: 2.2em !important;
     box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
 }
 .flatpickr-day.today {
     border: 2px solid #0077cc !important;
@@ -837,28 +869,39 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 }
 .flatpickr-day.prevMonthDay,
 .flatpickr-day.nextMonthDay {
-    display: none !important;
+    opacity: 0.35 !important;
+    color: #b0b0b0 !important;
+    background: #fff !important;
+    pointer-events: none !important;
+    box-shadow: none !important;
 }
+
 @media (max-width: 600px) {
-    .flatpickr-calendar {
-        min-width: 220px !important;
-        font-size: 0.95rem !important;
+    .flatpickr-current-month {
+        font-size: 1rem !important;
+        gap: 0.5rem !important;
     }
-    .flatpickr-months, .flatpickr-weekdays, .flatpickr-days {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
+    .flatpickr-monthDropdown-months, .flatpickr-current-month input.cur-year {
+        font-size: 0.97rem !important;
+        min-width: 3.5ch !important;
+        max-width: 6ch !important;
+        padding: 0.2rem 0.5rem !important;
+    }
+    .flatpickr-days {
+        padding: 0.7rem 0.5rem 1rem 0.5rem !important;
+        gap: 0.18rem !important;
     }
     .flatpickr-day {
         min-width: 1.7em !important;
         min-height: 1.7em !important;
         line-height: 1.7em !important;
-        font-size: 0.95rem !important;
+        font-size: 0.97rem !important;
     }
 }
 
 /*=============== INSURANCE PROVIDERS ===============*/
 .insurance {
-    background: #f8f8f4;
+    background: #fdfdfc !important;
     position: relative;
     display: flex;
     justify-content: center;
@@ -987,4 +1030,25 @@ h2 {
     font-family: 'Outfit', sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+}
+
+.body-bg-cream { background: #fdfdfc; }
+.body-bg-mint { background: #f3fdfa; }
+.body-bg-gray { background: #f6f6f6; }
+
+/* Ensure text remains readable */
+h1, h2, h3, h4, p, a, li, span, label {
+    color: #222;
+}
+
+.footer__title, .footer__link, .footer__contact li, .footer__bottom p, .footer__section p, .footer__logo {
+    color: #fff !important;
+}
+
+.footer__link, .footer__bottom p, .footer__contact li, .footer__section p, .footer__title, .footer__logo, .footer__social-link {
+    color: #fff !important;
+}
+
+.footer-under-contact {
+    color: #fff;
 }

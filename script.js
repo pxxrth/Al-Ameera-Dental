@@ -1,3 +1,8 @@
+/*=============== SCROLL TO TOP ON RELOAD ===============*/
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+
 /*=============== SHOW/HIDE MOBILE MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle');

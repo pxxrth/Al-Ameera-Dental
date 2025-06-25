@@ -730,81 +730,130 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 }
 
 /* Custom Flatpickr Styling */
-.flatpickr-calendar {
-    font-family: var(--body-font) !important;
-    border-radius: var(--border-radius) !important;
-    box-shadow: var(--box-shadow) !important;
-    border: 1px solid var(--border-color) !important;
+.flatpickr-calendar, .flatpickr-days {
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(30,42,90,0.10) !important;
+    border: 1px solid #e0e0e0 !important;
 }
-
 .flatpickr-months {
-    padding: 1rem 0 !important;
-    background-color: var(--primary-color) !important;
-    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.7rem 1.2rem 0.5rem 1.2rem !important;
+    background: #fff !important;
+    border-radius: 12px 12px 0 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #222 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
 }
-
 .flatpickr-month {
-    padding: 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: #222 !important;
 }
-
 .flatpickr-current-month {
-    font-size: 1.2rem !important;
-    font-weight: 600 !important;
-    padding: 0.5rem 0 !important;
-}
-
-.flatpickr-monthDropdown-months {
-    background-color: transparent !important;
-    color: white !important;
-    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
     font-size: 1.1rem !important;
-    padding: 0.25rem !important;
-}
-
-.flatpickr-current-month input.cur-year {
-    background-color: transparent !important;
-    color: white !important;
-    border: none !important;
-    font-size: 1.1rem !important;
-    padding: 0.25rem !important;
-    width: 60px !important;
-}
-
-.flatpickr-weekdays {
-    padding: 0.5rem 0 !important;
-    background-color: #f8f9fa !important;
-}
-
-.flatpickr-weekday {
-    padding: 0.75rem !important;
     font-weight: 600 !important;
-    color: var(--text-color) !important;
+    color: #222 !important;
 }
-
-.flatpickr-days {
-    padding: 0.5rem !important;
-}
-
-.flatpickr-day {
-    border-radius: 50% !important;
-    margin: 0.25rem !important;
-    padding: 0.75rem !important;
+.flatpickr-monthDropdown-months, .flatpickr-current-month input.cur-year {
+    font-size: 1.1rem !important;
     font-weight: 500 !important;
-    transition: all 0.3s ease !important;
+    padding: 0.2rem 0.5rem !important;
+    border-radius: 6px !important;
+    border: 1px solid #e0e0e0 !important;
+    background: #fff !important;
+    color: #222 !important;
+    margin-right: 0.5rem !important;
 }
-
-.flatpickr-day:hover {
-    background-color: var(--primary-color) !important;
-    color: white !important;
+.flatpickr-prev-month, .flatpickr-next-month {
+    color: #222 !important;
+    fill: #222 !important;
+    font-size: 1.2em !important;
+    opacity: 1 !important;
 }
-
-.flatpickr-day.selected {
-    background-color: var(--primary-color) !important;
-    color: white !important;
+.flatpickr-weekdays {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 0.5rem 1.2rem 0.2rem 1.2rem !important;
+    background: #fff !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #888 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
 }
-
+.flatpickr-weekday {
+    flex: 1 1 0;
+    text-align: center;
+    padding: 0.2rem 0 !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #888 !important;
+}
+.flatpickr-days {
+    padding: 0.7rem 1.2rem 1rem 1.2rem !important;
+    background: #fff !important;
+    border-radius: 0 0 12px 12px !important;
+}
+.flatpickr-day {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 500 !important;
+    color: #222 !important;
+    background: #fff !important;
+    border-radius: 50% !important;
+    padding: 0.5em 0 !important;
+    margin: 0.1em 0 !important;
+    text-align: center !important;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    border: 2px solid transparent !important;
+    min-width: 2.2em !important;
+    min-height: 2.2em !important;
+    line-height: 2.2em !important;
+    box-sizing: border-box !important;
+}
 .flatpickr-day.today {
-    border: 2px solid var(--primary-color) !important;
+    border: 2px solid #0077cc !important;
+    background: #fff !important;
+    color: #0077cc !important;
+}
+.flatpickr-day.selected {
+    background: #0077cc !important;
+    color: #fff !important;
+    border: 2px solid #0077cc !important;
+}
+.flatpickr-day:hover {
+    background: #e6f0fa !important;
+    color: #0077cc !important;
+    cursor: pointer;
+}
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    display: none !important;
+}
+@media (max-width: 600px) {
+    .flatpickr-calendar {
+        min-width: 220px !important;
+        font-size: 0.95rem !important;
+    }
+    .flatpickr-months, .flatpickr-weekdays, .flatpickr-days {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+    .flatpickr-day {
+        min-width: 1.7em !important;
+        min-height: 1.7em !important;
+        line-height: 1.7em !important;
+        font-size: 0.95rem !important;
+    }
 }
 
 /*=============== INSURANCE PROVIDERS ===============*/

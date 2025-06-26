@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Al Ameera Dental Clinic</title>
 
     <!-- Google Fonts: Inter -->
@@ -21,6 +21,9 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
 
@@ -41,6 +44,11 @@
                         <li class="nav__item"><a href="#about" class="nav__link">About Us</a></li>
                         <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
                     </ul>
+                    
+                    <!-- Mobile-only CTA -->
+                    <a href="#appointment-form" class="nav__mobile-cta" aria-label="Book appointment now – 3 slots left">
+                        Only 3 Slots Left This Week
+                    </a>
                 </div>
 
                 <div class="nav__actions">
@@ -237,22 +245,21 @@
         ========================= -->
         <section class="insurance section">
             <div class="container">
-                <h2 class="section__title" style="font-size: 2rem; margin-bottom: 2rem;">We Accept These Insurance Plans</h2>
-                <div class="insurance-carousel-wrapper">
-                    <div class="insurance-carousel">
-                        <img src="Images/insurance1.png" alt="Insurance 1" class="insurance-logo">
-                        <img src="Images/insurance2.png" alt="Insurance 2" class="insurance-logo">
-                        <img src="Images/insurance3.png" alt="Insurance 3" class="insurance-logo">
-                        <img src="Images/insurance4.png" alt="Insurance 4" class="insurance-logo">
-                        <img src="Images/insurance5.png" alt="Insurance 5" class="insurance-logo">
-                        <img src="Images/insurance6.png" alt="Insurance 6" class="insurance-logo">
-                        <!-- Duplicate for infinite loop effect -->
-                        <img src="Images/insurance1.png" alt="Insurance 1" class="insurance-logo">
-                        <img src="Images/insurance2.png" alt="Insurance 2" class="insurance-logo">
-                        <img src="Images/insurance3.png" alt="Insurance 3" class="insurance-logo">
-                        <img src="Images/insurance4.png" alt="Insurance 4" class="insurance-logo">
-                        <img src="Images/insurance5.png" alt="Insurance 5" class="insurance-logo">
-                        <img src="Images/insurance6.png" alt="Insurance 6" class="insurance-logo">
+                <h2 class="section__title" style="font-size: 2rem; margin-bottom: 2rem;">Insurances</h2>
+                <div class="insurance-logo-track-container">
+                    <div class="insurance-track">
+                        <img src="Images/insurance1.svg" alt="Insurance 1" class="insurance-logo">
+                        <img src="Images/insurance2.svg" alt="Insurance 2" class="insurance-logo">
+                        <img src="Images/insurance3.svg" alt="Insurance 3" class="insurance-logo">
+                        <img src="Images/insurance4.svg" alt="Insurance 4" class="insurance-logo">
+                        <img src="Images/insurance5.svg" alt="Insurance 5" class="insurance-logo">
+                        <img src="Images/insurance6.svg" alt="Insurance 6" class="insurance-logo">
+                        <img src="Images/insurance1.svg" alt="Insurance 1" class="insurance-logo">
+                        <img src="Images/insurance2.svg" alt="Insurance 2" class="insurance-logo">
+                        <img src="Images/insurance3.svg" alt="Insurance 3" class="insurance-logo">
+                        <img src="Images/insurance4.svg" alt="Insurance 4" class="insurance-logo">
+                        <img src="Images/insurance5.svg" alt="Insurance 5" class="insurance-logo">
+                        <img src="Images/insurance6.svg" alt="Insurance 6" class="insurance-logo">
                     </div>
                 </div>
             </div>
@@ -436,8 +443,8 @@
             <!-- About Section -->
             <div class="footer__section footer__section--about">
                 <h4 class="footer__logo">Al Ameera Dental</h4>
-                <p>Your destination for world-class dental care in Abu Dhabi. We are committed to creating beautiful, healthy smiles.</p>
-                 <div class="footer__socials">
+                <p>Your destination for world-class dental.</p>
+                <div class="footer__socials">
                     <a href="#" class="footer__social-link"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="footer__social-link"><i class="fab fa-facebook"></i></a>
                     <a href="#" class="footer__social-link"><i class="fab fa-twitter"></i></a>
@@ -481,6 +488,30 @@
     ========================= -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const heroSwiper = new Swiper('.hero-swiper-container', {
+        loop: true,
+        effect: 'fade',
+        speed: 900,
+        autoplay: {
+          delay: 5500,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        allowTouchMove: true,
+        pauseOnMouseEnter: true,
+      });
+    </script>
 
 </body>
 </html>

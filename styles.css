@@ -42,6 +42,21 @@
     }
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+    }
+}
+
 /* Base Styles */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -154,6 +169,11 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 
 .nav__actions { display: flex; align-items: center; gap: 1rem; }
 .nav__toggle { font-size: 1.5rem; cursor: pointer; display: none; }
+
+/* Mobile-only CTA - Hidden on desktop */
+.nav__mobile-cta {
+    display: none;
+}
 
 /*=============== HERO ===============*/
 .hero {
@@ -620,6 +640,11 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 .footer__bottom { padding: 1.5rem 0; text-align: center; border-top: 1px solid hsla(0,0%,100%,.1); }
 .footer__bottom p { color: hsla(0,0%,100%,.7); font-size: var(--small-font-size); }
 
+.footer__contact-list, .footer__contact-list *, .footer__contact-list i {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
 /*=============== WHATSAPP FAB ===============*/
 .whatsapp-fab {
     position: fixed;
@@ -640,33 +665,263 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
     transform: scale(1.1);
 }
 
+@media (max-width: 600px) {
+    .whatsapp-fab {
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+/* Insurance carousel infinite loop and pause on hover */
+.insurance-carousel {
+    display: flex;
+    animation: insurance-marquee 20s linear infinite;
+}
+.insurance-carousel:hover {
+    animation-play-state: paused;
+}
+@keyframes insurance-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Ensure .insurance-carousel has enough width for infinite effect */
+.insurance-carousel {
+    width: max-content;
+    min-width: 200%;
+}
+
+/* Responsive header button and toggle for mobile */
+@media screen and (max-width: 600px) {
+    .nav__btn {
+        font-size: 0.95rem;
+        padding-inline: 1rem;
+        line-height: 1.1;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 110px;
+        max-width: 98vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .nav__toggle {
+        font-size: 1.2rem;
+        width: 32px;
+        height: 32px;
+        margin-left: 0.3rem;
+    }
+}
+
 /*=============== MEDIA QUERIES ===============*/
 @media screen and (max-width: 992px) {
-    :root {
-        --h1-font-size: 2.5rem;
-        --h2-font-size: 2rem;
+    .header {
+        position: fixed;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        z-index: 1000;
+        background: #fff !important;
+        box-shadow: 0 2px 10px hsla(0,0%,0%,.08);
+    }
+    .nav {
+        flex-direction: row;
+        height: 60px;
+        padding: 0 1rem;
+    }
+    .nav__logo {
+        font-size: 1.5rem;
+        color: var(--primary-color) !important;
+        z-index: 1101;
+    }
+    .nav__toggle {
+        display: block !important;
+        z-index: 1101;
+        color: var(--primary-color) !important;
+        background: none;
+        border: none;
     }
     .nav__menu {
         position: fixed;
-        top: var(--header-height);
-        right: -100%;
-        width: 100%;
-        height: 100%;
-        background-color: var(--body-bg-color);
-        transition: var(--transition);
-        z-index: 100;
+        top: 0;
+        right: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s;
+        z-index: 1100;
+        box-shadow: 0 2px 10px hsla(0,0%,0%,.08);
     }
-    .nav__menu.show-menu { right: 0; }
-    .nav__list { flex-direction: column; padding-top: 2rem; }
-    .nav__toggle { display: block; }
-    .hero__container { grid-template-columns: 1fr; }
-    .hero__bottom-container { flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
-    .faq__container-grid { grid-template-columns: 1fr; }
-    .faq__content-left .section__title, .faq__content-left p { text-align: center; }
-    .faq__image { margin: 2rem auto; }
-    .footer__container { grid-template-columns: 1fr; text-align: center; }
-    .footer__socials, .footer__links { justify-content: center; }
-    .footer__contact li { justify-content: center; }
+    .nav__menu.show-menu {
+        right: 0;
+    }
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0;
+    }
+    .nav__link {
+        font-size: 1.3rem;
+        color: var(--primary-color-dark) !important;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav__actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        width: 100%;
+    }
+    .nav__btn {
+        width: 80vw;
+        max-width: 320px;
+        font-size: 1.1rem;
+        padding: 1rem 0;
+        margin: 0 auto;
+    }
+    
+    /* Mobile-only CTA */
+    .nav__mobile-cta {
+        display: block;
+        background-color: #FF6B6B;
+        color: white;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        width: 80vw;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        animation: pulse 2s ease-in-out infinite;
+        box-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+    }
+    
+    .nav__mobile-cta:hover {
+        background-color: #ff5252;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(255, 107, 107, 0.6);
+        color: white;
+        animation-play-state: paused;
+    }
+    
+    /* Ensure mobile CTA is visible in mobile menu */
+    .nav__menu .nav__mobile-cta {
+        display: block;
+    }
+}
+@media screen and (max-width: 600px) {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 56px;
+        min-height: 56px;
+        padding: 0 1rem;
+        background: #fff !important;
+        z-index: 1000;
+        box-shadow: 0 2px 10px hsla(0,0%,0%,.08);
+    }
+    .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 56px;
+        min-height: 56px;
+        gap: 0.5rem;
+        padding: 0;
+    }
+    .nav__logo {
+        font-size: 1.1rem;
+        flex: 0 0 auto;
+        margin-right: 0.5rem;
+    }
+    .nav__actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        flex: 0 0 auto;
+    }
+    .nav__btn {
+        font-size: 0.65rem;
+        padding: 0.5rem 0.9rem;
+        min-width: unset;
+        width: auto;
+        max-width: 110px;
+        height: 36px;
+        border-radius: 8px;
+        margin: 0;
+        flex: 0 0 auto;
+    }
+    .nav__toggle {
+        font-size: 1.3rem;
+        width: 34px;
+        height: 34px;
+        padding: 0.2rem;
+        margin-left: 0.5rem;
+        flex: 0 0 auto;
+    }
+    .nav__menu {
+        top: 56px;
+        height: calc(100vh - 56px);
+    }
+    
+    /* Mobile CTA adjustments for smaller screens */
+    .nav__mobile-cta {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 85vw;
+        max-width: 280px;
+    }
+    
+    .insurance {
+        margin-top: 0 !important;
+        padding-top: 2.2rem !important;
+        padding-bottom: 1.2rem !important;
+        min-height: unset !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    .insurance-carousel-wrapper, .insurance-carousel {
+        min-height: 36px;
+        height: 36px;
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .insurance-carousel-wrapper::-webkit-scrollbar, .insurance-carousel::-webkit-scrollbar {
+        display: none;
+    }
+    .insurance-logo {
+        height: 36px;
+        width: 70px;
+        min-width: 50px;
+        max-width: 90px;
+        margin: 0 3px;
+        flex: 0 0 70px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -1011,18 +1266,29 @@ h1, h2, h3, h4 { font-weight: 700; color: var(--text-color); }
 }
 @media (max-width: 600px) {
     .insurance {
-        min-height: 60px;
-        height: 60px;
+        min-height: 50px;
+        height: 50px;
+        padding: 1.2rem 0 0.5rem 0;
     }
     .insurance-carousel-wrapper, .insurance-carousel {
-        height: 44px;
+        height: 36px;
+        min-height: 36px;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .insurance-carousel-wrapper::-webkit-scrollbar, .insurance-carousel::-webkit-scrollbar {
+        display: none;
     }
     .insurance-logo {
-        height: 44px;
-        width: 50vw;
-        min-width: 60px;
-        max-width: 120px;
-        flex: 0 0 50vw;
+        height: 36px;
+        width: 70px;
+        min-width: 50px;
+        max-width: 90px;
+        margin: 0 3px;
+        flex: 0 0 70px;
     }
 }
 
@@ -1051,4 +1317,293 @@ h1, h2, h3, h4, p, a, li, span, label {
 
 .footer-under-contact {
     color: #fff;
+}
+
+/* Swiper Hero Slider Styles */
+.hero-swiper-container {
+  width: 100vw;
+  min-height: 60vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  z-index: 2;
+}
+.hero-slide {
+  width: 100vw;
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(30,40,80,0.38);
+  z-index: 1;
+}
+.hero-slide-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.hero-slide-title {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  font-family: 'Poppins', 'Inter', 'Outfit', sans-serif;
+}
+.hero-slide-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+  color: #f3f3f3;
+}
+.hero-slide-btn {
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  background: var(--primary-color, #2A3180);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(30,40,80,0.08);
+  transition: background 0.2s, transform 0.2s;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.hero-slide-btn:hover {
+  background: var(--primary-color-dark, #1B215A);
+  transform: translateY(-2px) scale(1.04);
+}
+.swiper-button-next, .swiper-button-prev {
+  color: #fff;
+  background: rgba(30,40,80,0.32);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(30,40,80,0.08);
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.swiper-pagination {
+  bottom: 18px !important;
+}
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.6;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px !important;
+  border-radius: 50%;
+  transition: opacity 0.2s;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--primary-color, #2A3180);
+}
+@media (max-width: 900px) {
+  .hero-swiper-container, .hero-slide {
+    min-height: 40vh;
+  }
+  .hero-slide-title {
+    font-size: clamp(1.3rem, 7vw, 2.2rem);
+  }
+  .hero-slide-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .hero-swiper-container, .hero-slide {
+    min-height: 32vh;
+  }
+  .hero-slide-content {
+    padding: 0 1rem;
+    max-width: 98vw;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    width: 32px;
+    height: 32px;
+  }
+  .swiper-pagination {
+    bottom: 8px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .insurance-logo-track-container {
+    padding: 0 0.5rem;
+    overflow: hidden;
+  }
+  .insurance-track {
+    display: flex !important;
+    flex-direction: row !important;
+    width: max-content;
+    animation: insurance-scroll 30s linear infinite;
+    gap: 0.7rem;
+    align-items: center;
+    pointer-events: none;
+  }
+  .insurance-logo {
+    flex: 0 0 33.3333vw;
+    width: 33.3333vw;
+    min-width: 80px;
+    max-width: 120px;
+    height: 44px;
+    max-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0;
+    overflow: visible;
+    flex-shrink: 0;
+  }
+  .insurance-logo img, .insurance-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    max-height: 54px;
+  }
+  /* Hide scrollbars for all browsers */
+  .insurance-logo-track-container::-webkit-scrollbar,
+  .insurance-track::-webkit-scrollbar {
+    display: none !important;
+  }
+  .insurance-logo-track-container,
+  .insurance-track {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.insurance-track {
+  display: flex !important;
+  flex-direction: row !important;
+  width: max-content;
+  animation: insurance-scroll 30s linear infinite;
+  gap: 2.2rem;
+  align-items: center;
+  pointer-events: none;
+}
+
+.insurance-logo-track-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.insurance-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0;
+  overflow: visible;
+  flex-shrink: 0;
+  width: 116px;
+  min-width: 80px;
+  max-width: 140px;
+  height: 77px;
+  max-height: 77px;
+}
+
+.insurance-logo img, .insurance-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  max-height: 77px;
+}
+
+@media (max-width: 900px) {
+  .insurance-logo-track-container {
+    max-width: 100vw;
+    padding: 0 1rem;
+  }
+  .insurance-logo {
+    width: 90px;
+    min-width: 70px;
+    max-width: 110px;
+    height: 54px;
+    max-height: 54px;
+  }
+}
+
+@media (max-width: 768px) {
+  .insurance-logo-track-container {
+    padding: 0 0.5rem;
+    overflow: hidden;
+  }
+  .insurance-track {
+    gap: 0.7rem;
+  }
+  .insurance-logo {
+    width: 33.3333vw;
+    min-width: 70px;
+    max-width: 120px;
+    height: 44px;
+    max-height: 54px;
+  }
+  .insurance-logo img, .insurance-logo {
+    max-height: 54px;
+  }
+}
+
+/* Hide scrollbars for all browsers */
+.insurance-logo-track-container::-webkit-scrollbar,
+.insurance-track::-webkit-scrollbar {
+  display: none !important;
+}
+
+.insurance-logo-track-container,
+.insurance-track {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html, body {
+  overflow-x: hidden;
 }

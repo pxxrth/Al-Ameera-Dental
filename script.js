@@ -10,6 +10,17 @@ const navMenu = document.getElementById('nav-menu'),
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('show-menu');
+        // Update ARIA attributes for accessibility
+        const isExpanded = navMenu.classList.contains('show-menu');
+        navToggle.setAttribute('aria-expanded', isExpanded);
+        navMenu.setAttribute('aria-hidden', !isExpanded);
+        
+        // Enable/disable body scroll when menu is open/closed
+        if (isExpanded) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
 }
 
@@ -19,10 +30,37 @@ navLinks.forEach(link => {
     link.addEventListener('click', () => {
         if (navMenu.classList.contains('show-menu')) {
             navMenu.classList.remove('show-menu');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
         }
     });
 });
 
+// Handle mobile CTA click
+const mobileCTA = document.querySelector('.nav__mobile-cta');
+if (mobileCTA) {
+    mobileCTA.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Close mobile menu
+        if (navMenu.classList.contains('show-menu')) {
+            navMenu.classList.remove('show-menu');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        
+        // Smooth scroll to appointment form
+        const appointmentForm = document.getElementById('appointment-form');
+        if (appointmentForm) {
+            appointmentForm.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+}
 
 /*=============== CHANGE HEADER BACKGROUND ON SCROLL ===============*/
 function scrollHeader() {
